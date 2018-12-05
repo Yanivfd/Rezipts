@@ -1,0 +1,9 @@
+<div class="wrappanel">
+    <app-receipts-summary *ngFor="let rec of receipts" [receipt]="rec" (userClick)="userClickedOnRecipe($event)"
+        (deleteReceiptClick)="userClickedOnDeleteRecipe($event)">
+    </app-receipts-summary>
+</div>
+<!-- <div *ngFor="let rec of receipts">
+    <a>{{rec}}</a>
+</div> -->
+<input type="button" value="Add new Receipt" class="btn bottom" (click)="AddNewReciept()">

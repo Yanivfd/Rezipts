@@ -1,0 +1,13 @@
+.wrappanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin: 1em;
+}

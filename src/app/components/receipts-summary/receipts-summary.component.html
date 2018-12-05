@@ -1,0 +1,25 @@
+<!-- </div> -->
+<div class="container">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <div class="delete-button-container">
+          <button mat-icon-button color="warn" (click)="deleteReceipt()">
+            <mat-icon aria-label="Example icon-button with a heart icon">delete_forever</mat-icon>
+          </button>
+        </div>
+        <h4>{{receipt.store_name}}</h4>
+      </ng-template>
+
+      <ng-template ngbPanelContent>
+        <ul>
+          <li *ngFor="let item of receipt.items_list">
+            {{item.item_name}}<span>: {{item.cost}}</span>
+          </li>
+        </ul>
+        <span>Total: </span>{{receipt.total_amount}}
+        <input type="button" class="btn-info bottom-btn" value="Edit" (click)="userClicked()">
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

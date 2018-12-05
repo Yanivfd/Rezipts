@@ -1,0 +1,50 @@
+<!-- <form #receiptFrom="ngForm">
+  <div>
+    Date: <input required type="text" name="date" [ngModel]="receipt.date | date: 'yyyy-MM-dd'" (ngModelChange)="receipt.date=$event"
+      placeholder="yyyy-mm-dd" /> Store: <input required type="
+      text" name="store_name" [(ngModel)]="receipt.store_name" /> Cashier: <input required type="text" name="cashier_name"
+      [(ngModel)]="receipt.cashier_name" />
+
+  </div>
+
+  <div>
+    <li *ngFor="let item of receipt.items_list; let i=index">
+      <input type="text" [(ngModel)]="item.item_name" name="item_name_{{i}}" />
+      <input type="text" [(ngModel)]="item.cost" name="item_cost_{{i}}" (ngModelChange)="PriceChange()" />
+      <input type="button" value="X" (click)="DeleteItem(i)" />
+    </li>
+
+    <input type="button" value="Add New Item" (click)="addNewItemClicked()" />
+  </div>
+
+  <div>
+    Total amount:
+    <h3>{{receipt.total_amount}}</h3>
+    
+    Payment Method: <input required type="text" name="payment_method" [(ngModel)]="receipt.payment_method" />
+  </div>
+  <input type="button" value="update" (click)="updateReceipt()" name="2" />
+</form>-->
+<div class="card-container">
+  <mat-card class="receipt-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{receipt.store_name}}</mat-card-title>
+      <mat-card-subtitle>{{receipt.date | date: 'yyyy-MM-dd'}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+      <li *ngFor="let item of receipt.items_list; let i=index">
+        <div class="item">
+          <span>{{item.item_name}}: </span>
+          <span>{{item.cost}}</span>
+        </div>
+      </li>
+      <p>Total Amount: <b>{{receipt.total_amount}}</b>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="CloseReceipt()">CLOSE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
