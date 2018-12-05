@@ -20,7 +20,7 @@ export const initialState: State = {
   recipt: null,
 };
 
-export const reducer = (state = initialState, action: ReceiptsActions) => {
+export function reducer(state = initialState, action: ReceiptsActions) {
   switch (action.type) {
     case INIT_APP_STATE:
       return { ...state };
