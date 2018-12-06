@@ -1,5 +1,3 @@
-import { Action } from '@ngrx/store';
-import { State } from '../reducers/index';
 import { Receipt } from '../../models/receipt';
 
 export const INIT_APP_STATE = 'INIT-APP';
