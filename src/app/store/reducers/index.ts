@@ -1,14 +1,8 @@
 import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
+  ActionReducerMap
 } from '@ngrx/store';
-import { environment } from '../../../environments/environment';
-import { Action } from '@ngrx/store';
 // tslint:disable-next-line:max-line-length
-import { INIT_APP_STATE, ADD_REZIPTS, DELETE_REZIPTS, ReceiptsActions, AddReciptAction, DeleteReciptAction, LoadSuccessReciptsAction, LOAD_REZIPTZ_SUCCESS } from '../actions/app.actions';
+import { INIT_APP_STATE, ADD_REZIPTS, DELETE_REZIPTS, ReceiptsActions, LOAD_REZIPTZ_SUCCESS } from '../actions/app.actions';
 import { Receipt } from '../../models/receipt';
 
 
@@ -24,9 +18,6 @@ export function reducer(state = initialState, action: ReceiptsActions) {
   switch (action.type) {
     case INIT_APP_STATE:
       return { ...state };
-    // case UPDATE_REZIPTS:
-    //   return [...state, action.payload];
-    //   break;
     case ADD_REZIPTS:
       return { ...state, recipt: action.payload };
 
@@ -39,7 +30,7 @@ export function reducer(state = initialState, action: ReceiptsActions) {
     default:
       break;
   }
-};
+}
 
 export interface ApplicationState {
   recipts: State;
