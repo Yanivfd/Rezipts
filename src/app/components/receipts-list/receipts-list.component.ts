@@ -27,7 +27,6 @@ export class ReceiptsListComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log('init');
     setTimeout(() => {
       this.loadingService.IsLoading.next(true);
     }, 0);
@@ -38,7 +37,6 @@ export class ReceiptsListComponent implements OnInit {
 
       this.receipts = val;
       this.loadingService.IsLoading.next(false);
-      console.log(val);
       this.store.dispatch(new LoadSuccessReciptsAction(val));
     },
       err => {

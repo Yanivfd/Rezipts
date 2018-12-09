@@ -30,20 +30,23 @@ export class ReceiptComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
 
-    const pm = await this.route.paramMap.toPromise();
+    const receipt_id = this.route.snapshot.paramMap.get('receipt_id');
 
     this.loadingService.IsLoading.next(true);
+    // this.route.paramMap.subscribe(o => {
+    //   receipt_id = o.get('receipt_id');
 
-    const receipt_id = pm.get('receipt_id');
 
-    try {
-      this.receipt = await this.receiptService.getReceiptById(receipt_id);
-    } catch (res) {
-      console.log(res);
+    // });
+
+    this.receiptService.getReceiptById(receipt_id).subscribe(o => {
+      this.receipt = o;
       this.loadingService.IsLoading.next(false);
-    }
-
-    this.loadingService.IsLoading.next(false);
+    },
+      err => {
+        console.log(err);
+        this.loadingService.IsLoading.next(false);
+      });
   }
 
   ngOnDestroy(): void {

@@ -31,8 +31,8 @@ export class ReceiptService {
     this.db.list<IReceipt>('ReceiptsList').update(newGenKey, rec);
   }
 
-  getReceiptById(receipt_id: string): Promise<IReceipt> {
-    return this.db.object<IReceipt>(`ReceiptsList/${receipt_id}`).valueChanges().toPromise();
+  getReceiptById(receipt_id: string): Observable<IReceipt> {
+    return this.db.object<IReceipt>(`ReceiptsList/${receipt_id}`).valueChanges();
   }
 
   async UpdateReceipt(receipt_id: string, receipt: Receipt): Promise<void> {
